@@ -1,0 +1,77 @@
+We Keep It Storage
+Physical Model
+
+Tables List
+account_type
+account_type
+transaction_detail
+transaction_history
+payroll_load
+payroll_processing
+new_transactions
+wkis_error_log
+
+
+Column Details
+ACCOUNT_TYPE (table)
+Account_type_code (PK) VARCHAR2(2)
+Default_trans_type (CK)  CHAR(1)
+Description VARCHAR2(100)
+*CK Details For TRANSACTION_TYPE table: transaction_type can only be 'D' or 'C'
+
+ACCOUNT (table)
+Account_no (PK) NUMBER
+Account_name VARCHAR2(30)
+Account_type_code (FK) VARCHAR2(2)
+Account_balance NUMBER
+
+TRANSACTION_DETAIL (table)
+Account_no (PK)(FK1) NUMBER
+Transaction_no (PK)(FK2) NUMBER
+Transaction_type (CK)  CHAR(1)
+Transaction_amount NUMBER
+*CK Details For TRANSACTION_TYPE table: transaction_type can only be 'D' or 'C'
+
+TRANSACTION_HISTORY (table)
+Transaction_no (PK) NUMBER
+Transaction_date DATE
+Description VARCHAR2(100)
+
+PAYROLL_LOAD (table)
+Payroll_date DATE
+Employee_id VARCHAR2(9)
+Amount NUMBER
+Status CHAR(1)
+
+PAYROLL_PROCESSING (table)
+Month_end CHAR(1)
+Payroll CHAR(1)
+
+NEW_TRANSACTIONS (table)
+Transaction_no NUMBER
+Transaction_date DATE
+Description VARCHAR2(100)
+Account_no NUMBER
+Transaction_type CHAR(1)
+Transaction_amount NUMBER
+
+WKIS_ERROR_LOG (table)
+Transaction_no NUMBER
+Transaction_date DATE
+Description VARCHAR2(100)
+Error_msg VARCHAR2(200)
+
+  
+
+
+Relationship Details:
+1:m relationship between ACCOUNT_TYPE and ACCOUNT with the many side being on ACCOUNT.
+1:m relationship between ACCOUNT and TRANSACTION_DETAIL with the many side being on TRANSACTION_DETAIL.
+1:m relationship between TRANSACTION_DETAIL and TRANSACTION_HISTORY with the many side being on TRANSACTION_DETAIL.
+
+
+
+
+
+
+
