@@ -6,7 +6,7 @@ DELETE FROM transaction_history;
 
 -- Group Assignment 2: Develop and Test a Coded Solution 
 -- Using the WKIS database
--- Matt Yackel
+-- Matt Yackel, Ana Alarcon, Ori Bermudez, Sergei
 
 DECLARE
 	-- Variables
